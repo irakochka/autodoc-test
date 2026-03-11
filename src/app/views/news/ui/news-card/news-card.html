@@ -1,0 +1,9 @@
+@if (newsItem(); as newsItem) {
+  <a [routerLink]="'/news/' + newsItem.url" class="news-card">
+    <img class="news-card__image" [src]="newsItem.titleImageUrl" [alt]="newsItem.title" />
+    <time class="news-card__published-date">{{ newsItem.publishedDate | date: 'dd.MM.yyyy' }}</time>
+    <p class="news-card__description">
+      {{ newsItem.description }}
+    </p>
+  </a>
+}

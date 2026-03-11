@@ -1,0 +1,8 @@
+@if (news(); as news) {
+  <div class="news-details">
+    <div class="news-details__title">{{ news.title }}</div>
+    <time class="news-details__published-date">{{ news.publishedDate | date: 'dd.MM.yyyy'}}</time>
+    <img [src]="news.titleImageUrl" alt="" class="news-details__image">
+    <p class="news-details__text" [innerHTML]="news.text | safeHtml"></p>
+  </div>
+}

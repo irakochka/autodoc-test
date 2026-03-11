@@ -1,0 +1,15 @@
+.news-list {
+  &__title {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 100%;
+    color: var(--black-100);
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 464px);
+    grid-gap: 24px;
+  }
+}
