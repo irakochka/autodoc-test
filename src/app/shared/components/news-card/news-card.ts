@@ -1,7 +1,7 @@
 import {Component, input} from '@angular/core';
-import {News} from '@shared';
 import {DatePipe} from '@angular/common';
 import {RouterLink} from '@angular/router';
+import {News} from '@shared/interfaces';
 
 @Component({
   selector: 'app-news-card',

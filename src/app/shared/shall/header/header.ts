@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {SvgIcon} from '@shared';
 import {RouterLink} from '@angular/router';
+import {SvgIcon} from '@shared/components';
 
 @Component({
   selector: 'app-header',

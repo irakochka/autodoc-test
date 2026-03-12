@@ -1,7 +1,8 @@
 import {HttpClient } from '@angular/common/http';
 import {inject, Injectable} from '@angular/core';
-import {BASE_API_URL, News, Pageable} from '@shared';
-import {Observable, tap} from 'rxjs';
+import {Observable} from 'rxjs';
+import {BASE_API_URL} from '@shared/tokens';
+import {News, Pageable} from '@shared/interfaces';
 
 @Injectable({
   providedIn: 'root',

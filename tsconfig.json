@@ -18,9 +18,8 @@
     "paths": {
       "@shared": ["src/app/shared/index.ts"],
       "@shared/*": ["src/app/shared/*"],
-      "@views": ["src/app/views/index.ts"],
-      "@views/*": ["src/app/views/*"],
-      "@interfaces/*": ["src/app/views/*"],
+      "@pages": ["src/app/pages/index.ts"],
+      "@pages/*": ["src/app/pages/*"],
     }
   },
   "angularCompilerOptions": {

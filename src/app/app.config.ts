@@ -2,9 +2,9 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChang
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import {BASE_API_URL} from '@shared';
 import {environment} from '../environments/environment';
 import {provideHttpClient} from '@angular/common/http';
+import {BASE_API_URL} from '@shared/tokens';
 
 export const appConfig: ApplicationConfig = {
   providers: [

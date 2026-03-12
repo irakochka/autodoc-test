@@ -1,16 +1,17 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {News, NewsService} from '@shared';
-import { NewsCard } from '@views/news/ui';
+import { NewsService } from '@shared/services';
+import {News} from '@shared/interfaces';
+import {NewsCard} from '@shared/components';
 
 @Component({
-  selector: 'app-news-list',
+  selector: 'app-catalog',
   imports: [
     NewsCard
   ],
-  templateUrl: './news-list.html',
-  styleUrl: './news-list.scss',
+  templateUrl: './catalog.html',
+  styleUrl: './catalog.scss',
 })
-export class NewsList implements OnInit {
+export class Catalog implements OnInit {
   newsService = inject(NewsService);
   news!: News[];
 

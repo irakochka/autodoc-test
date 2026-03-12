@@ -1,18 +1,20 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {News, NewsService, SafeHtmlPipe} from '@shared';
 import {DatePipe} from '@angular/common';
+import {SafeHtmlPipe} from '@shared/pipes';
+import {NewsService} from '@shared/services';
+import {News} from '@shared/interfaces';
 
 @Component({
-  selector: 'app-news-details',
+  selector: 'app-detail',
   imports: [
     SafeHtmlPipe,
     DatePipe
   ],
-  templateUrl: './news-details.html',
-  styleUrl: './news-details.scss',
+  templateUrl: './detail.html',
+  styleUrl: './detail.scss',
 })
-export class NewsDetails implements OnInit {
+export class Detail implements OnInit {
   route = inject(ActivatedRoute);
   newsService = inject(NewsService);
 
