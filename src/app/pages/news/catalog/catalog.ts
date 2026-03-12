@@ -1,23 +1,43 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit, signal} from '@angular/core';
 import { NewsService } from '@shared/services';
 import {News} from '@shared/interfaces';
-import {NewsCard} from '@shared/components';
+import {InfiniteScrollTrigger, NewsCard} from '@shared/components';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {NewsStore} from '@shared/store/news-store';
+import {map} from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
   imports: [
-    NewsCard
+    NewsCard,
+    InfiniteScrollTrigger
   ],
   templateUrl: './catalog.html',
   styleUrl: './catalog.scss',
 })
 export class Catalog implements OnInit {
-  newsService = inject(NewsService);
-  news!: News[];
+  private readonly newsStore = inject(NewsStore);
 
-  ngOnInit() {
-    this.newsService.fetchAllNews(1, 10).subscribe((val) => {
-      this.news = val.news;
-    });
+  news = toSignal(
+    this.newsStore.state$.pipe(map(state => state.news)),
+    { initialValue: [] }
+  );
+
+  loading = toSignal(
+    this.newsStore.state$.pipe(map(state => state.loading)),
+    { initialValue: false }
+  );
+
+  hasMore = toSignal(
+    this.newsStore.state$.pipe(map(state => state.hasMore)),
+    { initialValue: true }
+  );
+
+  ngOnInit(): void {
+    this.newsStore.init();
+  }
+
+  timeToFetch(): void {
+    this.newsStore.fetchNextPage();
   }
 }

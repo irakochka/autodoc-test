@@ -1,10 +1,20 @@
-<div class="news-list">
-  <h2 class="news-list__title">Автомобильные новости</h2>
-  <div class="news-list__list">
-    @if (news) {
-      @for (newsItem of news; track newsItem.id) {
-        <app-news-card [newsItem]="newsItem"/>
+@if (news(); as news) {
+  <div class="news-list">
+    <h2 class="news-list__title">Автомобильные новости</h2>
+    <div class="news-list__list">
+      @if (news) {
+        @for (newsItem of news; track newsItem.id; let last = $last) {
+          @if (last) {
+            @defer (on viewport) {
+              <app-infinite-scroll-trigger (loaded)="timeToFetch()"></app-infinite-scroll-trigger>
+            } @placeholder {
+              <div></div>
+            }
+          }
+
+          <app-news-card [newsItem]="newsItem"/>
+        }
       }
-    }
+    </div>
   </div>
-</div>
+}
