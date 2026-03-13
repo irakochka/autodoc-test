@@ -1,15 +1,39 @@
-.news-list {
+@use "../../../../styles/mixins";
+
+.catalog {
   &__title {
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 100%;
-    color: var(--black-100);
+    @include mixins.title-64;
     margin-bottom: 40px;
   }
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, 464px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-gap: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .catalog {
+    &__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog {
+    &__title {
+      @include mixins.title-32;
+      margin-bottom: 32px;
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  .catalog {
+    &__list {
+      grid-template-columns: 1fr;
+    }
   }
 }

@@ -21,7 +21,7 @@ export class NewsStore {
   private readonly stateSubject = new BehaviorSubject<NewsState>({
     news: [],
     nextPage: 1,
-    limit: 10,
+    limit: 9,
     loading: false,
     hasMore: true,
     totalCount: 0,

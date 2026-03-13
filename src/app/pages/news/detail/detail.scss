@@ -1,4 +1,6 @@
-.news-details {
+@use "../../../../styles/mixins";
+
+.detail {
   max-width: 952px;
   display: flex;
   flex-direction: column;
@@ -7,10 +9,7 @@
   margin: 0 auto;
 
   &__title {
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 100%;
-    color: var(--black-100);
+    @include mixins.title-64;
   }
 
   &__image {
@@ -26,8 +25,12 @@
     background: var(--black-05);
     border-radius: 25px;
   }
+}
 
-  &__text {
-
+@media (max-width: 768px) {
+  .detail {
+    &__title {
+      @include mixins.title-32;
+    }
   }
 }
