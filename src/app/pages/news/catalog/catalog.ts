@@ -1,6 +1,4 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import { NewsService } from '@shared/services';
-import {News} from '@shared/interfaces';
+import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
 import {InfiniteScrollTrigger, NewsCard} from '@shared/components';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {NewsStore} from '@shared/store/news-store';
@@ -8,12 +6,14 @@ import {map} from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
+  standalone: true,
   imports: [
     NewsCard,
     InfiniteScrollTrigger
   ],
   templateUrl: './catalog.html',
   styleUrl: './catalog.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Catalog implements OnInit {
   private readonly newsStore = inject(NewsStore);

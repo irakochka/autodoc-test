@@ -1,4 +1,4 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnInit, signal} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SafeHtmlPipe} from '@shared/pipes';
 import {NewsService} from '@shared/services';
@@ -8,6 +8,7 @@ import {ImagePreview} from '@shared/components';
 
 @Component({
   selector: 'app-detail',
+  standalone: true,
   imports: [
     SafeHtmlPipe,
     PublishedDate,
@@ -15,6 +16,7 @@ import {ImagePreview} from '@shared/components';
   ],
   templateUrl: './detail.html',
   styleUrl: './detail.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Detail implements OnInit {
   route = inject(ActivatedRoute);

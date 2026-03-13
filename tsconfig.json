@@ -20,6 +20,7 @@
       "@shared/*": ["src/app/shared/*"],
       "@pages": ["src/app/pages/index.ts"],
       "@pages/*": ["src/app/pages/*"],
+      "@styles/*": ["src/app/pages/*"]
     }
   },
   "angularCompilerOptions": {
