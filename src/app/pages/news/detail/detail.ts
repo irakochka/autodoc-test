@@ -4,12 +4,14 @@ import {SafeHtmlPipe} from '@shared/pipes';
 import {NewsService} from '@shared/services';
 import {News} from '@shared/interfaces';
 import {PublishedDate} from '@shared/components/published-date/published-date';
+import {ImagePreview} from '@shared/components';
 
 @Component({
   selector: 'app-detail',
   imports: [
     SafeHtmlPipe,
-    PublishedDate
+    PublishedDate,
+    ImagePreview
   ],
   templateUrl: './detail.html',
   styleUrl: './detail.scss',

@@ -2,7 +2,7 @@
   <div class="detail">
     <div class="detail__title">{{ news.title }}</div>
     <app-published-date [date]="news.publishedDate"/>
-    <img [src]="news.titleImageUrl" alt="" class="detail__image">
+    <app-image-preview [imageUrl]="news.titleImageUrl"/>
     <p class="detail__text" [innerHTML]="news.text | safeHtml"></p>
   </div>
 }

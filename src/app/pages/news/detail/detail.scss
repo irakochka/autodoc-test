@@ -13,10 +13,6 @@
     @include mixins.title-64;
   }
 
-  &__image {
-    border-radius: 32px;
-  }
-
   &__published-date {
     padding: 8px 12px;
     @include mixins.text-20;

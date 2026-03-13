@@ -1,0 +1,5 @@
+@if (imageUrl(); as imageUrl) {
+  <img class="image-preview" [src]="imageUrl" alt=""/>
+} @else {
+  <img class="image-preview" src="/assets/images/photo-placeholder.jpg" alt=""/>
+}

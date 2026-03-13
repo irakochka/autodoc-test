@@ -1,6 +1,8 @@
-@if (newsItem(); as newsItem) {
+@if (news(); as newsItem) {
   <a [routerLink]="'/news/' + newsItem.url" class="news-card">
-    <img class="news-card__image" [src]="newsItem.titleImageUrl" [alt]="newsItem.title" />
+    <span class="news-card__image">
+      <app-image-preview [imageUrl]="newsItem.titleImageUrl"/>
+    </span>
     <app-published-date [date]="newsItem.publishedDate"/>
     <p class="news-card__description">
       {{ newsItem.description }}

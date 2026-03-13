@@ -4,7 +4,7 @@
     <div class="catalog__list">
       @if (news) {
         @for (newsItem of news; track newsItem.id; let last = $last) {
-          <app-news-card [newsItem]="newsItem"/>
+          <app-news-card [news]="newsItem"/>
 
           @if (last) {
             @defer (on viewport) {
