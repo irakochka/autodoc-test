@@ -1,7 +1,7 @@
 @if (news(); as news) {
   <div class="detail">
     <div class="detail__title">{{ news.title }}</div>
-    <time class="detail__published-date">{{ news.publishedDate | date: 'dd.MM.yyyy'}}</time>
+    <app-published-date [date]="news.publishedDate"/>
     <img [src]="news.titleImageUrl" alt="" class="detail__image">
     <p class="detail__text" [innerHTML]="news.text | safeHtml"></p>
   </div>

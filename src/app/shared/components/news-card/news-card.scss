@@ -14,16 +14,6 @@
     transition: opacity 0.3s ease;
   }
 
-  &__published-date {
-    padding: 8px 12px;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 130%;
-    color: var(--black-80);
-    background: var(--black-05);
-    border-radius: 25px;
-  }
-
   &__description {
     font-weight: 500;
     font-size: 24px;

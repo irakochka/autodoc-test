@@ -1,15 +1,15 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DatePipe} from '@angular/common';
 import {SafeHtmlPipe} from '@shared/pipes';
 import {NewsService} from '@shared/services';
 import {News} from '@shared/interfaces';
+import {PublishedDate} from '@shared/components/published-date/published-date';
 
 @Component({
   selector: 'app-detail',
   imports: [
     SafeHtmlPipe,
-    DatePipe
+    PublishedDate
   ],
   templateUrl: './detail.html',
   styleUrl: './detail.scss',

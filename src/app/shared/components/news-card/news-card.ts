@@ -1,13 +1,13 @@
 import {Component, input} from '@angular/core';
-import {DatePipe} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {News} from '@shared/interfaces';
+import {PublishedDate} from '@shared/components/published-date/published-date';
 
 @Component({
   selector: 'app-news-card',
   imports: [
-    DatePipe,
-    RouterLink
+    RouterLink,
+    PublishedDate,
   ],
   templateUrl: './news-card.html',
   styleUrl: './news-card.scss',

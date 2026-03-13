@@ -1,0 +1,17 @@
+.published-date {
+  padding: 8px 12px;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 130%;
+  color: var(--black-80);
+  background: var(--black-05);
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .published-date {
+    font-size: 16px;
+    line-height: 130%;
+  }
+}
