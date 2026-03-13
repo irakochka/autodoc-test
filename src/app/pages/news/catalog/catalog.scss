@@ -1,4 +1,5 @@
 @use "../../../../styles/mixins";
+@use "../../../../styles/breakpoints";
 
 .catalog {
   &__title {
@@ -13,7 +14,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@include breakpoints.xl {
   .catalog {
     &__list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -21,7 +22,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include breakpoints.md {
   .catalog {
     &__title {
       @include mixins.title-32;
@@ -30,7 +31,7 @@
   }
 }
 
-@media (max-width: 599px) {
+@include breakpoints.sm {
   .catalog {
     &__list {
       grid-template-columns: 1fr;

@@ -1,12 +1,14 @@
+@use "breakpoints";
+
 .container {
-  max-width: 1470px;
-  padding: 0 15px;
+  max-width: 1500px;
+  padding: 0 30px;
   width: 100%;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
+@include breakpoints.md {
   .container {
-    padding: 0 10px;
+    padding: 0 16px;
   }
 }

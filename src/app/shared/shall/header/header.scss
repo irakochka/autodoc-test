@@ -1,3 +1,6 @@
+@use "../../../../styles/mixins";
+@use "../../../../styles/breakpoints";
+
 .header {
   padding: 24px 0;
   border-bottom: 1px solid var(--black-10);
@@ -9,16 +12,12 @@
   }
 
   &__title {
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 130%;
-    color: var(--black-100);
+    @include mixins.text-20;
     text-transform: uppercase;
   }
 }
 
-@media screen and (max-width: 768px) {
+@include breakpoints.md {
   .header {
     &__logo {
       max-width: 30px;
@@ -26,9 +25,8 @@
 
     &__title {
       width: 100%;
+      @include mixins.text-16;
       font-weight: 500;
-      font-size: 16px;
-      line-height: 100%;
       text-align: center;
     }
 
