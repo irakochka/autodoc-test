@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {News} from '@shared/interfaces';
-import {PublishedDate} from '@shared/components/published-date/published-date';
-import {ImagePreview} from '@shared/components';
+import {PublishedDate} from '@features/news/published-date/published-date';
+import {ImagePreview} from '@features/news';
 
 @Component({
   selector: 'app-news-card',

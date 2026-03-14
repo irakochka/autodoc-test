@@ -1,3 +1,6 @@
+@use "mixins";
+@use "breakpoints";
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -40,6 +43,16 @@ img {
   justify-content: center;
 }
 
+.svg12 {
+  width: 12px;
+  height: 12px;
+}
+
+.svg18 {
+  width: 18px;
+  height: 18px;
+}
+
 .svg24 {
   width: 24px;
   height: 24px;
@@ -54,9 +67,7 @@ img {
 
   &--primary {
     padding: 16px 8px;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 130%;
+    @include mixins.text-20;
     color: var(--white-100);
     border-radius: 60px;
     background: var(--black-100);
@@ -70,4 +81,21 @@ img {
     border-radius: 60px;
     background: var(--black-100);
   }
+
+  &:disabled {
+    color: var(--black-60);
+    background: var(--black-10);
+    cursor: not-allowed;
+  }
 }
+
+@include breakpoints.md {
+  .btn {
+    &--primary {
+      @include mixins.text-16;
+      border-radius: 16px;
+    }
+  }
+}
+
+

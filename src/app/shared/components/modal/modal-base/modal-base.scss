@@ -1,0 +1,26 @@
+@use "breakpoints";
+
+.modal-base-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-wrapper {
+  padding: 40px 56px;
+  max-width: 952px;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg);
+  border-radius: 32px;
+}
+
+@include breakpoints.md {
+  .modal-wrapper {
+    padding: 16px;
+    width: calc(100% - 32px);
+  }
+}

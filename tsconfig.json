@@ -16,6 +16,8 @@
     "module": "preserve",
     "baseUrl": "./",
     "paths": {
+      "@features": ["src/app/features/index.ts"],
+      "@features/*": ["src/app/features/*"],
       "@shared": ["src/app/shared/index.ts"],
       "@shared/*": ["src/app/shared/*"],
       "@pages": ["src/app/pages/index.ts"],

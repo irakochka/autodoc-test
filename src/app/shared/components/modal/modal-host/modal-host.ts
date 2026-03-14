@@ -7,18 +7,18 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ModalService} from '@shared/services';
+import {ModalService} from '@shared/components';
 
 @Component({
   selector: 'app-modal-host',
   imports: [CommonModule],
-  templateUrl: './modal-host.component.html',
-  styleUrl: './modal-host.component.scss',
+  templateUrl: './modal-host.html',
+  styleUrl: './modal-host.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class ModalHostComponent implements AfterViewInit {
-  #modalService = inject(ModalService);
+export class ModalHost implements AfterViewInit {
+  private readonly modalService = inject(ModalService);
 
   container = viewChild('container', { read: ViewContainerRef });
 
@@ -26,6 +26,6 @@ export class ModalHostComponent implements AfterViewInit {
     const container = this.container();
 
     if (!container) return;
-    this.#modalService.registerContainer(container);
+    this.modalService.registerContainer(container);
   }
 }

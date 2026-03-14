@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-modal-base',
   imports: [CommonModule],
-  templateUrl: './modal-base.component.html',
-  styleUrl: './modal-base.component.scss',
+  templateUrl: './modal-base.html',
+  styleUrl: './modal-base.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class ModalBaseComponent {}
+export class ModalBase {}

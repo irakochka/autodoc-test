@@ -1,0 +1,113 @@
+<app-modal-base>
+  <div class="news-modal">
+    <button
+      type="button"
+      class="news-modal__close"
+      (click)="close()"
+      aria-label="Закрыть модальное окно"
+    >
+      <svg icon="cross" class="common-svg svg18"></svg>
+    </button>
+
+    @if (!isSuccess()) {
+      <h4 class="news-modal__title">Добавить новость</h4>
+
+      <form
+        class="news-modal__form"
+        [formGroup]="newsForm"
+        (ngSubmit)="submit()"
+      >
+        <input
+          class="news-modal__field news-modal__field--input"
+          type="text"
+          placeholder="Заголовок"
+          formControlName="title"
+        >
+
+        <textarea
+          class="news-modal__field news-modal__field--textarea"
+          placeholder="Текст"
+          formControlName="description"
+        ></textarea>
+
+        <label
+          class="news-modal__dropzone"
+          dnd
+          (keyup.enter)="fileDrop.click()"
+          (fileDropped)="onFileDropped($event)"
+          tabindex="0"
+        >
+          <div class="news-modal__dropzone-content">
+            <span class="news-modal__dropzone-text">Загрузить изображение</span>
+          </div>
+
+          <input
+            type="file"
+            class="news-modal__file-input"
+            tabindex="-1"
+            accept="image/*"
+            #fileDrop
+            (change)="fileBrowserHandler($event)"
+          />
+        </label>
+
+        @if (previewUrl(); as previewUrl) {
+          <div class="news-modal__preview">
+            <img
+              class="news-modal__preview-image"
+              [src]="previewUrl"
+              alt="Превью изображения"
+            >
+
+            <button
+              type="button"
+              class="news-modal__preview-remove"
+              (click)="removePreview(fileDrop)"
+              aria-label="Удалить изображение"
+            >
+              <svg icon="cross" class="common-svg svg12"></svg>
+            </button>
+          </div>
+        }
+
+        <button
+          type="submit"
+          class="btn btn--primary news-modal__submit"
+          [disabled]="newsForm.invalid"
+        >
+          Опубликовать новость
+        </button>
+      </form>
+    } @else {
+      @if (createdNews(); as news) {
+        <div class="news-modal__success">
+          <h4 class="news-modal__title">Готово</h4>
+
+          <div class="success-card news-modal__success-card">
+            <div class="success-card__preview">
+              <img
+                class="success-card__preview-image"
+                [src]="news.titleImageUrl"
+                [alt]="news.title"
+              >
+            </div>
+
+            <div class="success-card__content">
+              <p class="success-card__title">
+                {{ news.title }}
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="btn btn--primary news-modal__submit"
+            (click)="close()"
+          >
+            Окей
+          </button>
+        </div>
+      }
+    }
+  </div>
+</app-modal-base>

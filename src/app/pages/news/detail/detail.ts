@@ -3,8 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {SafeHtmlPipe} from '@shared/pipes';
 import {NewsService} from '@shared/services';
 import {News} from '@shared/interfaces';
-import {PublishedDate} from '@shared/components/published-date/published-date';
-import {ImagePreview} from '@shared/components';
+import {ImagePreview, PublishedDate} from '@features/news';
 
 @Component({
   selector: 'app-detail',
